@@ -51,7 +51,18 @@ guessBtn.addEventListener('click', function(){
         //display winning message
         setMessage(`You have guessed the correct number!`, 'green');
     } else {
-
+        if (guess !== winningNum){
+            guessesLeft--; 
+            setMessage(`Incorrect. You have ${guessesLeft} guesses left`, 'red');
+                if(guessesLeft === 0){
+                    guessInput.disabled = true;
+                    guessInput.style.backgroundColor = 'lightgray';
+                    setMessage(`You have reached the maximum guesses. Please try again`, "red");
+                    guessBtn.value = 'Play Again';
+                    guessBtn.style.color = 'green';
+                    resetInput();
+                }
+        }
     }
 })
 
@@ -60,3 +71,6 @@ function setMessage (msg, color){
     message.textContent = msg;
 }
 
+function resetInput(){
+    
+}
