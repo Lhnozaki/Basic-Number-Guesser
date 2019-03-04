@@ -25,4 +25,8 @@ const game = document.getElementById('game'),
       guessInput = document.querySelector('.guess-input'),
       message = document.querySelector('.message');
 
+// Assign UI Min & Max Numbers
 
+minNum.textContent = min;
+
+maxNum.textContent = max;
