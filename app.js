@@ -21,8 +21,8 @@ let min = 1,
 const game = document.getElementById('game'),
       minNum = document.querySelector('.min-num'),
       maxNum = document.querySelector('.max-num'),
-      guessBtn = document.querySelector('.guess-btn'),
-      guessInput = document.querySelector('.guess-input'),
+      guessBtn = document.querySelector('#guess-btn'),
+      guessInput = document.querySelector('#guess-input'),
       message = document.querySelector('.message');
 
 // Assign UI Min & Max Numbers
@@ -30,3 +30,23 @@ const game = document.getElementById('game'),
 minNum.textContent = min;
 
 maxNum.textContent = max;
+
+// Button Event Listener
+
+guessBtn.addEventListener('click', function(){
+    //console.log(guessInput.value);
+
+    let guess = parseInt(guessInput.value);
+
+    //console.log(guess);
+
+    if(isNaN(guess) || guess < min || guess > max){
+        //message.textContent = `Please enter a number between ${min} and ${max}`)
+        setMessage(`Please enter a number between ${min} and ${max}`);
+    }
+})
+
+function setMessage (msg){
+    message.textContent = msg;
+}
+
